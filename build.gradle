@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.1.2'
+    id 'io.spring.dependency-management' version '1.1.2'
+}
+
+group = 'com.board'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-web-services'
+    runtimeOnly 'com.oracle.database.jdbc:ojdbc8'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation 'com.oracle.database.security:osdt_cert:21.3.0.0'
+    implementation 'com.oracle.database.security:oraclepki:21.3.0.0'
+    implementation 'com.oracle.database.security:osdt_core:21.3.0.0'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
